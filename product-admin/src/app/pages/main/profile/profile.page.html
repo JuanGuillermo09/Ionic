@@ -1,0 +1,24 @@
+<app-header [showMenu]="true" title="Perfil"></app-header>
+<ion-content class="ion-padding-top ion-text-center">
+  <ion-avatar>
+    <img *ngIf="user()?.image" [src]="user()?.image" />
+    <ion-icon name="person-circle-outline" class="empty-icon" *ngIf="!user()?.image"></ion-icon>
+  </ion-avatar>
+
+  <ion-button (click)="takeImage()" mode="ios" shape="round" size="small" class="photo-btn">
+    <ion-icon name="camera-outline"></ion-icon>
+  </ion-button>
+
+  <h2>{{user().name}}</h2>
+  <div>Vendedor</div>
+
+  <ion-item button detail>
+    <ion-icon slot="start" name="person-outline"></ion-icon>
+    <ion-label>Editar Perfil</ion-label>
+  </ion-item>
+
+  <ion-item button detail>
+    <ion-icon slot="start" name="document-outline" color="primary"></ion-icon>
+    <ion-label>Terminos & Condiciones</ion-label>
+  </ion-item>
+</ion-content>
